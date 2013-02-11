@@ -6,8 +6,7 @@ This piece of code has no other purpose than showing how to display processes ou
 
 How to use
 ===
-Simply run the following command
-    coffee server.coffee
+Simply run the following command: coffee server.coffee.
 
 Open the browser on http://localhost:4568 and see the result.
 

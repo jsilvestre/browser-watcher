@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Monitoring</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:4568');
+
+        socket.on('update-log', function(data) {
+
+            $('#' + data.type + '-log p span').html(data.content);
+        });
+    </script>
+
+
+    <div id="brunch-log">
+        <p>Brunch log: <span></span></p>
+    </div>
+    <div id="server-log">
+        <p>Server log: <span></span></p>
+    </div>
+</head>
+</html>

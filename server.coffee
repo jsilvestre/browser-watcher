@@ -22,6 +22,7 @@ onFileChange = (socket, logFilePath, type) ->
     streamInput = fs.createReadStream(logFilePath);
     streamInput.setEncoding 'utf8'
     textInput = ''
+    lastLine = ''
 
     streamInput.on 'data', (data) ->
         textInput += data
@@ -33,6 +34,10 @@ onFileChange = (socket, logFilePath, type) ->
     streamInput.on 'end', (close) ->
         splittedText = textInput.split String.fromCharCode(10)
         lastLine = splittedText[splittedText.length - 2]
+
+        # Strip the shell color code
+        lastLine = lastLine.replace /\[[0-9]+m/g, ''
+
         socket.emit "update-log",
             "type" : type
             "content" : lastLine

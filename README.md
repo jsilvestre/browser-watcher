@@ -14,4 +14,3 @@ server.coffee starts brunch in project/ and the test.coffee script.
 
 * test.coffee updates automatically (simple number incrementation).
 * make a modification in the project/ directory. IE: project/app/mytest.coffee
-
